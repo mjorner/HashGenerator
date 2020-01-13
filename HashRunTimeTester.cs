@@ -25,7 +25,7 @@ namespace HashGenerator {
                 charCount += hash.Length;
             }
             sw.Stop();
-            Console.WriteLine($"{HashGenerator.Identifier} -> Hash executions: {Executions}. Total hash time: {sw.ElapsedMilliseconds} ms. ms/hash {sw.ElapsedMilliseconds/Executions}. Total hash char count:{charCount}.");
+            Console.WriteLine($"{HashGenerator.Identifier} -> Hash executions: {Executions}. Total hash time: {sw.ElapsedMilliseconds} ms. ms/hash: {((double)sw.ElapsedMilliseconds)/((double)Executions)}. Total hash char count: {charCount}.");
         }
     }
 }
