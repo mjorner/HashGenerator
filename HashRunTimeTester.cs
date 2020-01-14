@@ -15,13 +15,13 @@ namespace HashGenerator {
         }
 
         public void Run() {
-            string toBeHashed = "password";
+            string input = "password";
             string salt = RandomKeyGenerator.GetUniqueKey(16);
             Stopwatch sw = new Stopwatch();
             sw.Restart();
             int charCount = 0;
             for (int i = 0; i < Executions; i++) {
-                string hash = HashGenerator.GenerateHash(toBeHashed+i, salt+i);
+                string hash = HashGenerator.GenerateHash(input+i, salt+i);
                 charCount += hash.Length;
             }
             sw.Stop();

@@ -1,1 +1,1 @@
-# Generate hashes
+# Tool for generating Argon2id, Sha256 and Sha512 hashes with a randomly generated salt.
