@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using System.Text;
 
 namespace HashGenerator {
-    public class RandomKeyGenerator {
+    public static class RandomKeyGenerator {
         private static readonly char[] chars = Enumerable.Range(33, ((126-33)+1)).Select(x=> (char)x).Where(x=> x != '\"' && x != '`' && x != '\'').ToArray();
 
         public static string GetUniqueKey(int size) {

@@ -20,5 +20,9 @@ namespace HashGenerator {
             Console.WriteLine($"{Identifier} hash: \"{hash}\"");
             Console.WriteLine("-------------------------");
         }
+
+        protected static string AddSalt(string input, string salt) {
+            return salt+input;
+        }
     }
 }

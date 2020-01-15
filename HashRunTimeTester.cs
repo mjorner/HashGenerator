@@ -15,7 +15,7 @@ namespace HashGenerator {
         }
 
         public void Run() {
-            string input = "password";
+            string input = "pa$$w0rd";
             string salt = RandomKeyGenerator.GetUniqueKey(16);
             Stopwatch sw = new Stopwatch();
             sw.Restart();
@@ -25,7 +25,7 @@ namespace HashGenerator {
                 charCount += hash.Length;
             }
             sw.Stop();
-            Console.WriteLine($"{HashGenerator.Identifier} -> Hash executions: {Executions}. Total hash time: {sw.ElapsedMilliseconds} ms. ms/hash: {((double)sw.ElapsedMilliseconds)/((double)Executions)}. Total hash char count: {charCount}.");
+            Console.WriteLine($"{HashGenerator.Identifier.PadRight(10)} -> Hash executions: {(""+Executions+".").PadRight(7)} Total hash time: {(""+sw.ElapsedMilliseconds+"ms.").PadRight(8)} ms/hash: {(""+((double)sw.ElapsedMilliseconds)/((double)Executions)+".").PadRight(9)} Total hash char count: {charCount}.");
         }
     }
 }
