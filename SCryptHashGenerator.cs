@@ -1,4 +1,8 @@
 namespace HashGenerator {
+    /********************************************************
+    * The SCrypt implementation salts the given input itself.
+    * But this salts the input additionally.
+    *********************************************************/
     public class SCryptHashGenerator : HashGeneratorBase {
         public override string Identifier => "SCrypt";
 
@@ -8,9 +12,9 @@ namespace HashGenerator {
             return hash;
         }
 
-        protected override bool Verify(string input, string salt, string expected_hash) {
+        public override bool Verify(string input, string salt, string expectedHash) {
             var encoder = new Scrypt.ScryptEncoder();
-            bool verified = encoder.Compare(AddSalt(input, salt), expected_hash);
+            bool verified = encoder.Compare(AddSalt(input, salt), expectedHash);
             return verified;
         }
     }

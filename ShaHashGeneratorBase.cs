@@ -18,9 +18,9 @@ namespace HashGenerator {
             return bytes;
         }
 
-        protected override bool Verify(string input, string salt, string expected_hash) {
+        public override bool Verify(string input, string salt, string expectedHash) {
             byte[] bytes = Encoding.UTF8.GetBytes(GenerateHash(input, salt));
-            return ByteByByteEquals(bytes, Encoding.UTF8.GetBytes(expected_hash));
+            return ByteByByteEquals(bytes, Encoding.UTF8.GetBytes(expectedHash));
         }
 
         private byte[] AddSalt(byte[] bytes, byte[] saltBytes) {

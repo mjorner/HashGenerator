@@ -1,4 +1,8 @@
 namespace HashGenerator {
+    /********************************************************
+    * The BCrypt implementation salts the given input itself.
+    * But this salts the input additionally.
+    *********************************************************/
     public class BCryptHashGenerator : HashGeneratorBase {
         public override string Identifier => "BCrypt";
 
@@ -7,8 +11,8 @@ namespace HashGenerator {
             return hash;
         }
 
-        protected override bool Verify(string input, string salt, string expected_hash) {
-            bool verified = BCrypt.Net.BCrypt.Verify(AddSalt(input, salt), expected_hash);
+        public override bool Verify(string input, string salt, string expectedHash) {
+            bool verified = BCrypt.Net.BCrypt.Verify(AddSalt(input, salt), expectedHash);
             return verified;
         }
     }

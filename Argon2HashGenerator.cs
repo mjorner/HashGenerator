@@ -11,9 +11,9 @@ namespace HashGenerator {
             return hash;
         }
 
-        protected override bool Verify(string input, string salt, string expected_hash) {
+        public override bool Verify(string input, string salt, string expectedHash) {
             Argon2Config config = GetConfig(input, salt);
-            bool verified = Argon2.Verify(expected_hash, config);
+            bool verified = Argon2.Verify(expectedHash, config);
             return verified;
         }
 

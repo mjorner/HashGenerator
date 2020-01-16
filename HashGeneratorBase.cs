@@ -4,7 +4,7 @@ namespace HashGenerator {
     public abstract class HashGeneratorBase {
         public abstract string GenerateHash(string input, string salt);
         public abstract string Identifier { get; }
-        protected abstract bool Verify(string input, string salt, string expected_hash);
+        public abstract bool Verify(string input, string salt, string expectedHash);
 
         public void Generate() {
             Console.WriteLine($"------{Identifier}-generator------");
